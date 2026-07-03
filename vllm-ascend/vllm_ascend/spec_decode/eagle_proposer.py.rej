@@ -1,0 +1,22 @@
+diff a/vllm_ascend/spec_decode/eagle_proposer.py b/vllm_ascend/spec_decode/eagle_proposer.py	(rejected hunks)
+@@ -28,6 +28,8 @@ from vllm_ascend.attention.utils import AscendCommonAttentionMetadata
+ from vllm_ascend.ops.rotary_embedding import update_cos_sin
+ from vllm_ascend.spec_decode.interface import Proposer, SpecDcodeType
+ 
++from vllm.model_executor.models import supports_multimodal
++
+ PADDING_SLOT_ID = -1
+ 
+ _DEFAULT_FIRST_LAYER = 'model.layers.0.self_attn.attn'
+@@ -143,7 +145,10 @@ class EagleProposer(Proposer):
+                 "The EAGLE head shares the same vocab embedding" \
+                 " with the target model."
+             )
+-            self.model.model.embed_tokens = model.model.embed_tokens
++            if supports_multimodal(model):
++                self.model.model.embed_tokens = model.language_model.model.embed_tokens
++            else:
++                self.model.model.embed_tokens = model.model.embed_tokens
+         else:
+             logger.info(
+                 "Since PP > 1, the EAGLE head loaded its own vocab embedding" \

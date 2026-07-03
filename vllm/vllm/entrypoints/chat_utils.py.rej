@@ -1,0 +1,18 @@
+diff a/vllm/entrypoints/chat_utils.py b/vllm/entrypoints/chat_utils.py	(rejected hunks)
+@@ -448,11 +448,11 @@ def resolve_mistral_chat_template(
+     chat_template: str | None,
+     **kwargs: Any,
+ ) -> str | None:
+-    if chat_template is not None or kwargs.get("chat_template_kwargs") is not None:
+-        raise ValueError(
+-            "'chat_template' or 'chat_template_kwargs' cannot be overridden "
+-            "for mistral tokenizer."
+-        )
++    # if chat_template is not None or kwargs.get("chat_template_kwargs") is not None:
++    #     raise ValueError(
++    #         "'chat_template' or 'chat_template_kwargs' cannot be overridden "
++    #         "for mistral tokenizer."
++    #     )
+ 
+     return None
+ 

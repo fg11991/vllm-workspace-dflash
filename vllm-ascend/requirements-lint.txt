@@ -1,5 +1,5 @@
 # formatting
-pre-commit==4.0.1
+pre-commit==4.6.2
 
 # type checking
 mypy==1.11.1

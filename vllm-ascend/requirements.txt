@@ -14,9 +14,9 @@ psutil
 setuptools>=64
 setuptools-scm>=8
 torch==2.10.0
-torch-npu==2.10.0
+torch-npu==2.14.0
 torchvision==0.25.0
-torchaudio==2.10.0
+torchaudio==2.11.0+cpu
 triton-ascend==3.2.1
 wheel
 xgrammar>=0.1.30
@@ -34,6 +34,6 @@ numba
 memfabric_hybrid
 memcache_hybrid
 
-arctic-inference==0.1.1
-transformers==5.5.3
-fastapi<0.124.0
+arctic-inference==0.3.0
+transformers==5.20.2
+fastapi<0.151.0
